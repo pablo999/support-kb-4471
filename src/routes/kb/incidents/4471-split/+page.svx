@@ -39,6 +39,15 @@ The cause comes from the report's tenant, not from `intakeTag` (intake's guess).
 booking-v3 hint and the one-day move open.
 </Callout>
 
+## Engineering update, 5 October
+
+Engineering closed #4471 on 5 October:
+
+- **parser**: fixed, `fix(dates): parse dd/mm for eu locales`. Its ticket is closed as completed.
+- **hint**: won't fix, the booking-v3 form is retired. Its ticket is closed as not planned.
+- **oneDayMove**: not in the update. The dd/mm fix does not touch a time-zone shift, so its ticket
+  stays open.
+
 ## What this means for triage
 
 Matching on subject put several causes in one ticket. Changing the dedupe rule needs a new

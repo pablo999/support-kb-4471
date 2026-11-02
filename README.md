@@ -42,3 +42,4 @@ Exported 2026-10-04 from the `support` repo, `apps/kb/` → `src/`.
 - The page as the desk will see it: `rendered/kb/incidents/4471-split/index.html` (static build of the whole kb in `rendered/`).
 - Rebuild: `npm install && npm run build` (SvelteKit + mdsvex + adapter-static, alias `#lib` → `src/lib`), output in `build/`.
 - Tickets: #1 parser (379, as the desk counts: by tenant cause; includes the 5 read as a one-day move), #2 hint (33), #3 one-day move (5, filed by the desk under parser).
+- Engineering update 05 Oct: #1 closed (completed, parser fixed), #2 closed (not planned, booking-v3 retired), #3 open (not covered).
