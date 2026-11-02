@@ -37,7 +37,7 @@ Exported 2026-10-04 from the `support` repo, `apps/kb/` → `src/`.
 
 ## #4471, split (added 2026-11-02)
 
-- Page: `src/routes/kb/incidents/4471-split/+page.svx` (signed, desk ref DR-FXGR-BNJA).
+- Page: `src/routes/kb/incidents/4471-split/+page.svx` (signed, desk ref DR-8H4F-KC04).
 - Logic: `src/lib/kb/split.ts`, `src/lib/kb/SplitTable.svelte` (counts computed from `src/lib/data`).
 - The page as the desk will see it: `rendered/kb/incidents/4471-split/index.html` (static build of the whole kb in `rendered/`).
 - Rebuild: `npm install && npm run build` (SvelteKit + mdsvex + adapter-static, alias `#lib` → `src/lib`), output in `build/`.
