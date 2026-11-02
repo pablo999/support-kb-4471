@@ -17,13 +17,15 @@
   <strong>{problems.length}</strong> {problems.length === 1 ? 'problem' : 'problems'}
 </p>
 
+<p class="under">Counted as the desk counts them: each report under its tenant's cause. A report read as a one-day move stays counted where it is filed.</p>
+
 <table>
   <thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr></thead>
   <tbody>
     {#each problems as p (p.key)}
       <tr>
         <td>{PROBLEM_LABEL[p.key]} <code>{p.key}</code></td>
-        <td>{p.reports.length}</td>
+        <td>{p.reports.length}{#if p.filedUnder}<span class="under"> · {Object.entries(p.filedUnder).map(([c, n]) => `${n} filed under ${c}`).join(', ')}</span>{/if}</td>
         <td>{p.tenants}</td>
         <td>{p.firstSeen} → {p.lastSeen}</td>
         <td>
@@ -36,4 +38,5 @@
 
 <style>
   .sum { font-size: 1.1rem; }
+  .under { color: var(--muted); font-size: 0.85em; }
 </style>

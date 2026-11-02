@@ -1,6 +1,6 @@
 ---
 layout: runbook
-title: '#4471, split · three problems, not one'
+title: '#4471, split · one ticket per problem'
 owner: pablo999
 status: proposed
 reviewed: 2026-11-02
@@ -31,7 +31,8 @@ The cause comes from the report's tenant, not from `intakeTag` (intake's guess).
    People type month first as told; the form reads it day first. Fixing the parser does not fix this.
 4. **oneDayMove**: the reports the desk listed in `desk-notes.json`. Their bodies show a date one
    day off, or the same meeting on different days in Lisbon and Toronto. That is a time-zone shift,
-   not a swap, so it gets its own ticket instead of a footnote under `parser`.
+   not a swap, so it gets its own ticket. The desk still counts these reports under `parser`,
+   where they are filed, and so does the table.
 
 <Callout kind="warn">
 "Known. One issue, one fix queued." does not hold: the queued parser fix leaves the
@@ -40,7 +41,7 @@ booking-v3 hint and the one-day move open.
 
 ## What this means for triage
 
-Matching on subject put three causes in one ticket. Changing the dedupe rule needs a new
+Matching on subject put several causes in one ticket. Changing the dedupe rule needs a new
 decision record; 0001 stays as accepted.
 
 <RenderStamp {signature} />
