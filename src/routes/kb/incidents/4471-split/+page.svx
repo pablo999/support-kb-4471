@@ -1,0 +1,46 @@
+---
+layout: runbook
+title: '#4471, split · three problems, not one'
+owner: pablo999
+status: proposed
+reviewed: 2026-11-02
+signature: pablo999
+---
+
+<script>
+  import SplitTable from '#lib/kb/SplitTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+[#4471](/kb/incidents/4471) was merged by subject line ([decision 0001](/kb/decisions/0001-dedupe-by-subject)):
+nobody read the bodies. Read by cause, the reports in it are not one bug. Each problem below has
+its own ticket, with its count.
+
+<SplitTable ticket={4471} repo="pablo999/support-kb-4471" issues={{ parser: 1, hint: 2, oneDayMove: 3 }} />
+
+## How a report is placed
+
+The cause comes from the report's tenant, not from `intakeTag` (intake's guess). It runs in
+`#lib/kb/split`, on top of `causeOf` in `#lib/kb/causes`:
+
+1. One id, one report: the export's duplicate rows count once.
+2. **parser**: the tenant writes the day first (asked of `Intl`), and the shared parser reads
+   every date month first. Day and month come out swapped.
+3. **hint**: the report came through the booking-v3 form, whose date field says `MM/DD/YYYY`.
+   People type month first as told; the form reads it day first. Fixing the parser does not fix this.
+4. **oneDayMove**: the reports the desk listed in `desk-notes.json`. Their bodies show a date one
+   day off, or the same meeting on different days in Lisbon and Toronto. That is a time-zone shift,
+   not a swap, so it gets its own ticket instead of a footnote under `parser`.
+
+<Callout kind="warn">
+"Known. One issue, one fix queued." does not hold: the queued parser fix leaves the
+booking-v3 hint and the one-day move open.
+</Callout>
+
+## What this means for triage
+
+Matching on subject put three causes in one ticket. Changing the dedupe rule needs a new
+decision record; 0001 stays as accepted.
+
+<RenderStamp {signature} />

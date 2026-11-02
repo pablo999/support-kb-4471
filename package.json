@@ -1,0 +1,14 @@
+{
+  "name": "kb-render",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "vite build" },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^5.0.0",
+    "mdsvex": "^0.12.0",
+    "svelte": "^5.0.0",
+    "vite": "^6.0.0"
+  }
+}
